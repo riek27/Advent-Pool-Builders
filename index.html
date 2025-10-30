@@ -3,702 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riek Gatluak Geka | UI/UX Designer</title>
+    <title>Smart Tech Juba - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #334155;
-            --light-color: #f8fafc;
-            --dark-color: #0f172a;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-color);
-        }
-        
-        .logo span {
-            color: var(--primary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--dark-color);
-            font-weight: 600;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            width: 50%;
-        }
-        
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-        
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--text-color);
-        }
-        
-        .hero-image {
-            width: 45%;
-            text-align: center;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        .skills {
-            flex: 1;
-        }
-        
-        .skill {
-            margin-bottom: 20px;
-        }
-        
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-        
-        .skill-level {
-            height: 100%;
-            background: var(--primary-color);
-            border-radius: 10px;
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            background: #f1f5f9;
-        }
-        
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .project {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .project:hover .project-image img {
-            transform: scale(1.1);
-        }
-        
-        .project-info {
-            padding: 20px;
-        }
-        
-        .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-        
-        .project-info p {
-            margin-bottom: 15px;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .project-tag {
-            padding: 5px 10px;
-            background: #e6f0ff;
-            color: var(--primary-color);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        /* Contact Section */
-        .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
-            list-style: none;
-        }
-        
-        .contact-details li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-details i {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .contact-form {
-            flex: 1;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .footer-logo span {
-            color: var(--primary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px);
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .footer-links a {
-            color: #cbd5e1;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content,
-            .about-content,
-            .contact-content {
-                flex-direction: column;
-            }
-            
-            .hero-text,
-            .hero-image {
-                width: 100%;
-            }
-            
-            .hero-text {
-                margin-bottom: 50px;
-                text-align: center;
-            }
-            
-            .hero-image {
-                order: -1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-            }
-            
-            .nav-links li {
-                margin: 0 15px;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .hero {
-                padding: 120px 0 80px;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Port<span>folio</span></a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Smart <span>Tech</span> Juba</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
+        <video class="video-bg" autoplay muted loop>
+            <source src="https://cdn.videvo.net/videvo_files/video/free/2013-08/large_watermarked/Technology_Close_up_Of_Computer_Keyboard_01_preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Upgrade Your Lifestyle with Smart Tech Juba 💡</h1>
+            <p>Your trusted online electronics store in Juba, South Sudan. Free delivery straight to your doorstep.</p>
+            <a href="https://wa.me/211922237302" class="btn">Chat on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm Riek Gatluak Geka</h1>
-                    <p>I'm a passionate UI/UX Designer with 5+ years of experience creating beautiful and functional digital experiences. I specialize in user-centered design that solves real problems.</p>
-                    <a href="#portfolio" class="btn">View My Work</a>
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card animate">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smartwatch" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Smartwatch Pro</h3>
+                        <p class="product-desc">Advanced fitness tracking with heart rate monitor.</p>
+                        <div class="product-price">
+                            <span class="usd">$199</span>
+                            <span class="ssp">SSP 150,000</span>
+                        </div>
+                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
+                    </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://drive.google.com/file/d/1uDnYPYk8FMHGb5kjqj_9O9_AMxTtbCzD/view?usp=sharing" alt="Riek Gatluak Geka">
+                <div class="product-card animate">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="iPhone" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">iPhone 14 Pro</h3>
+                        <p class="product-desc">Latest iPhone with advanced camera system.</p>
+                        <div class="product-price">
+                            <span class="usd">$999</span>
+                            <span class="ssp">SSP 750,000</span>
+                        </div>
+                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
+                    </div>
                 </div>
+                <div class="product-card animate">
+                    <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AirPods" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Wireless AirPods</h3>
+                        <p class="product-desc">Premium sound quality with noise cancellation.</p>
+                        <div class="product-price">
+                            <span class="usd">$179</span>
+                            <span class="ssp">SSP 135,000</span>
+                        </div>
+                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="products.html" class="btn btn-outline">View All Products</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- Features Section -->
+    <section class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Crafting Digital Experiences That Users Love</h2>
-                    <p>I'm a UI/UX designer based in San Francisco, with over 5 years of professional experience. I specialize in creating intuitive, accessible, and pixel-perfect interfaces for web and mobile applications.</p>
-                    <p>My design philosophy centers around understanding user needs and business goals to create solutions that are not only visually appealing but also highly functional and effective.</p>
-                    <p>When I'm not designing, you can find me hiking, reading psychology books, or experimenting with new design tools and techniques.</p>
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features">
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Free and fast delivery straight to your doorstep within Juba.</p>
                 </div>
-                <div class="skills">
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>UI Design</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 95%;"></div>
-                        </div>
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>UX Research</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Wireframing</span>
-                            <span>92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 92%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Prototyping</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 88%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Front-end Development</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 75%;"></div>
-                        </div>
-                    </div>
+                    <h3>Trusted Quality</h3>
+                    <p>We offer only genuine products with warranty and quality assurance.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-  <!-- Portfolio Section -->
-<section id="portfolio" class="section portfolio">
-    <div class="container">
-        <h2 class="section-title">My Portfolio</h2>
-        <div class="projects">
-            <div class="project">
-                <div class="project-image">
-                    <img src="assets/riekgatluak.jpg" alt="Riek Gatluak Geka">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-                    <div class="project-info">
-                        <h3>Finance Dashboard</h3>
-                        <p>A comprehensive financial management dashboard with data visualization and reporting tools.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">UI Design</span>
-                            <span class="project-tag">Dashboard</span>
-                            <span class="project-tag">Fintech</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
                     </div>
+                    <h3>Affordable Prices</h3>
+                    <p>Competitive pricing that fits your budget without compromising quality.</p>
                 </div>
-                <div class="project">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="E-commerce App">
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <div class="project-info">
-                        <h3>E-commerce App</h3>
-                        <p>Mobile shopping experience with intuitive navigation and seamless checkout process.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">UX Research</span>
-                            <span class="project-tag">Mobile App</span>
-                            <span class="project-tag">E-commerce</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                <div class="project">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Health & Fitness App">
-                    </div>
-                    <div class="project-info">
-                        <h3>Health & Fitness App</h3>
-                        <p>Wellness application that helps users track their fitness goals and nutrition.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">UI/UX Design</span>
-                            <span class="project-tag">Mobile</span>
-                            <span class="project-tag">Health</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Let's Talk About Your Project</h2>
-                    <p>Feel free to reach out if you're looking for a designer, want to connect, or just want to talk about design.</p>
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>riekgatluak25@gmail.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+2119 812 117 36</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Juba, South Sudan</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Riek Gatluak Geka</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">riekgatluak25@gmail.com</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    <h3>Customer Support</h3>
+                    <p>24/7 customer support to assist you with any inquiries or issues.</p>
                 </div>
             </div>
         </div>
@@ -709,34 +131,39 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <div class="footer-logo">Port<span>folio</span></div>
-                    <p>Creating meaningful digital experiences through thoughtful design.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                    <div class="footer-logo">Smart <span>Tech</span> Juba</div>
+                    <p>Your trusted online electronics store in Juba, South Sudan. Free delivery straight to your doorstep.</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#contact">Contact</a>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
                 </div>
                 <div class="footer-links">
-                    <h3>Services</h3>
-                    <a href="#">UI Design</a>
-                    <a href="#">UX Research</a>
-                    <a href="#">Wireframing</a>
-                    <a href="#">Prototyping</a>
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0922 237 302</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Juba, South Sudan</li>
+                        <li><i class="fas fa-envelope"></i> smarttechjuba@gmail.com</li>
+                    </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Riek Gatluak Geka. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Smart Tech Juba. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/211922237302" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>

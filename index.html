@@ -367,78 +367,82 @@
     </div>
 
     <!-- AI Chatbot Widget -->
-<div class="chatbot-container" id="chatbotContainer">
-    <!-- Chatbot toggle button -->
-    <button class="chatbot-toggle" id="chatbotToggle">
-        <i class="fas fa-comment-dots"></i>
-        <span class="chatbot-status-indicator"></span>
-    </button>
+    <div class="chatbot-container" id="chatbotContainer">
+        <!-- Chatbot toggle button -->
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chatbot-status-indicator"></span>
+        </button>
 
-    <!-- Chatbot window -->
-    <div class="chatbot-window" id="chatbotWindow">
-        <!-- Chatbot header -->
-        <div class="chatbot-header">
-            <div class="chatbot-avatar">
-                <div class="avatar-circle">
-                    <i class="fas fa-water"></i>
+        <!-- Chatbot window -->
+        <div class="chatbot-window" id="chatbotWindow">
+            <!-- Chatbot header -->
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <div class="avatar-circle">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="chatbot-status">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">Online</span>
+                    </div>
                 </div>
-                <div class="chatbot-status">
-                    <span class="status-dot active"></span>
-                    <span class="status-text">Online</span>
+                <div class="chatbot-info">
+                    <h3>Advent Pools AI Assistant</h3>
+                    <p>How can I help you today?</p>
                 </div>
-            </div>
-            <div class="chatbot-info">
-                <h3>Advent Pools AI Assistant</h3>
-                <p>How can I help you today?</p>
-            </div>
-            <button class="chatbot-close" id="chatbotClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <!-- Chat messages container -->
-        <div class="chatbot-messages" id="chatbotMessages">
-            <!-- Initial bot message -->
-            <div class="message bot-message">
-                <div class="message-content">
-                    <p>Hello! I'm the Advent Pools AI assistant. I can help you with information about our luxury pool designs, services, pricing, project process, or schedule a consultation. How may I assist you today?</p>
-                    <span class="message-time">Just now</span>
-                </div>
-            </div>
-
-            <!-- Quick question buttons -->
-            <div class="quick-questions">
-                <button class="quick-question-btn" data-question="What services do you offer?">Our Services</button>
-                <button class="quick-question-btn" data-question="How much does a custom pool cost?">Pricing Info</button>
-                <button class="quick-question-btn" data-question="What is your design process?">Our Process</button>
-                <button class="quick-question-btn" data-question="How do I schedule a consultation?">Schedule Consultation</button>
-            </div>
-        </div>
-
-        <!-- Chat input area -->
-        <div class="chatbot-input">
-            <div class="typing-indicator" id="typingIndicator">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span>Advent AI is typing</span>
-            </div>
-            <div class="input-container">
-                <input type="text" id="chatbotInput" placeholder="Ask about our luxury pools, services, or pricing...">
-                <button id="sendMessage">
-                    <i class="fas fa-paper-plane"></i>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="input-hints">
-                <span>Try asking: </span>
-                <button class="hint-btn" data-question="Tell me about Advent Pools">About us</button>
-                <button class="hint-btn" data-question="What pool styles do you offer?">Pool styles</button>
-                <button class="hint-btn" data-question="How long does construction take?">Timeline</button>
+
+            <!-- Chat messages container -->
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Initial bot message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! I'm the Advent Pools AI assistant. I can help you with information about our luxury pool designs, services, pricing, project process, or schedule a consultation. How may I assist you today?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+
+                <!-- Quick question buttons -->
+                <div class="quick-questions">
+                    <button class="quick-question-btn" data-question="What services do you offer?">Our Services</button>
+                    <button class="quick-question-btn" data-question="How much does a custom pool cost?">Pricing Info</button>
+                    <button class="quick-question-btn" data-question="What is your design process?">Our Process</button>
+                    <button class="quick-question-btn" data-question="How do I schedule a consultation?">Schedule Consultation</button>
+                </div>
+            </div>
+
+            <!-- Chat input area -->
+            <div class="chatbot-input">
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>Advent AI is typing</span>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="chatbotInput" placeholder="Ask about our luxury pools, services, or pricing...">
+                    <button id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-hints">
+                    <span>Try asking: </span>
+                    <button class="hint-btn" data-question="Tell me about Advent Pools">About us</button>
+                    <button class="hint-btn" data-question="What pool styles do you offer?">Pool styles</button>
+                    <button class="hint-btn" data-question="How long does construction take?">Timeline</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
     <!-- Main JavaScript -->
     <script src="script.js"></script>
 </body>

@@ -3,167 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Tech Juba - Home</title>
+    <title>Advent Pools | Luxury Custom Pool Design & Construction | Houston, Texas</title>
+    <meta name="description" content="Advent Pools creates bespoke luxury swimming pools and outdoor living spaces in Houston, Texas. Premier pool design and construction for discerning homeowners.">
+    
+    <!-- 2026 Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏊</text></svg>">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Smart <span>Tech</span> Juba</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">ADVENT<span>POOLS</span></a>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="navbar-menu">
+            <a href="index.html" class="navbar-link active">Home</a>
+            <a href="about.html" class="navbar-link">About</a>
+            <a href="projects.html" class="navbar-link">Projects</a>
+            <a href="services.html" class="navbar-link">Services</a>
+            <a href="process.html" class="navbar-link">Process</a>
+            <a href="contact.html" class="navbar-link">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <video class="video-bg" autoplay muted loop>
-            <source src="assets/vid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-            <h1>Upgrade Your Lifestyle with Smart Tech Juba 💡</h1>
-            <p>Your trusted online electronics store in Juba, South Sudan. Free delivery straight to your doorstep.</p>
-            <a href="https://wa.me/211922237302" class="btn">Chat on WhatsApp</a>
+    <section class="hero" id="home">
+        <div class="hero-bg-container">
+            <div class="hero-bg-image"></div>
+            <div class="hero-overlay"></div>
         </div>
-    </section>
-
-    <!-- Featured Products Section -->
-    <section class="products">
+        
         <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="products-grid">
-                <div class="product-card animate">
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smartwatch" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-name">Smartwatch Pro</h3>
-                        <p class="product-desc">Advanced fitness tracking with heart rate monitor.</p>
-                        <div class="product-price">
-                            <span class="usd">$199</span>
-                            <span class="ssp">SSP 150,000</span>
-                        </div>
-                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
-                    </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Advent Pools</h1>
+                <h2 class="hero-subtitle">Luxury Pools Designed for Modern Living</h2>
+                
+                <div class="typed-text-container">
+                    <h3 class="typed-text">Luxury Custom Pools</h3>
                 </div>
-                <div class="product-card animate">
-                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="iPhone" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-name">iPhone 14 Pro</h3>
-                        <p class="product-desc">Latest iPhone with advanced camera system.</p>
-                        <div class="product-price">
-                            <span class="usd">$999</span>
-                            <span class="ssp">SSP 750,000</span>
-                        </div>
-                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
-                    </div>
+                
+                <p class="hero-subtitle">Crafted with precision, elegance, and lasting quality in Houston, Texas. Experience the pinnacle of aquatic design and outdoor living excellence.</p>
+                
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Request a Consultation</a>
+                    <a href="projects.html" class="btn btn-secondary">View Our Work</a>
                 </div>
-                <div class="product-card animate">
-                    <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AirPods" class="product-img">
-                    <div class="product-info">
-                        <h3 class="product-name">Wireless AirPods</h3>
-                        <p class="product-desc">Premium sound quality with noise cancellation.</p>
-                        <div class="product-price">
-                            <span class="usd">$179</span>
-                            <span class="ssp">SSP 135,000</span>
-                        </div>
-                        <a href="https://wa.me/211922237302" class="btn">Order on WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="products.html" class="btn btn-outline">View All Products</a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="about">
+    <!-- About Section -->
+    <section class="section about-section" id="about">
         <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <div class="features">
-                <div class="feature-card animate">
-                    <div class="feature-icon">
-                        <i class="fas fa-shipping-fast"></i>
+            <div class="about-content reveal">
+                <div class="about-text">
+                    <h2 class="section-title">Redefining Luxury Outdoor Living</h2>
+                    <p class="mb-3">Founded in Houston with a vision to transform ordinary spaces into extraordinary aquatic environments, Advent Pools combines architectural precision with artistic vision.</p>
+                    <p class="mb-3">Our team of master craftsmen, designers, and engineers work collaboratively to create breathtaking pools that seamlessly integrate with your home and lifestyle, elevating your outdoor living experience to new heights of luxury and sophistication.</p>
+                    <p>Every project is approached with meticulous attention to detail, ensuring not only aesthetic excellence but also structural integrity and long-term durability that withstands the test of time.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Luxury Pools</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
                     </div>
-                    <h3>Fast Delivery</h3>
-                    <p>Free and fast delivery straight to your doorstep within Juba.</p>
+                    
+                    <a href="about.html" class="btn btn-outline mt-4">Learn More About Us</a>
                 </div>
-                <div class="feature-card animate">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Luxury pool design by Advent Pools" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title text-center reveal">Featured Projects</h2>
+            <p class="text-center mb-4 reveal" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                Explore our portfolio of exquisite pool designs that showcase our commitment to innovation, craftsmanship, and timeless elegance.
+            </p>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1536746803623-cef87080bfc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Modern infinity pool" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">River Oaks Residence</h3>
+                        <p class="project-location">Houston, Texas</p>
+                        <span class="project-category">Infinity Pool</span>
                     </div>
-                    <h3>Trusted Quality</h3>
-                    <p>We offer only genuine products with warranty and quality assurance.</p>
                 </div>
-                <div class="feature-card animate">
-                    <div class="feature-icon">
-                        <i class="fas fa-tags"></i>
+                
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Geometric pool design" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Memorial Modern</h3>
+                        <p class="project-location">Houston, Texas</p>
+                        <span class="project-category">Geometric Pool</span>
                     </div>
-                    <h3>Affordable Prices</h3>
-                    <p>Competitive pricing that fits your budget without compromising quality.</p>
                 </div>
-                <div class="feature-card animate">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Luxury resort-style pool" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Tanglewood Estate</h3>
+                        <p class="project-location">Houston, Texas</p>
+                        <span class="project-category">Resort-Style Pool</span>
                     </div>
-                    <h3>Customer Support</h3>
-                    <p>24/7 customer support to assist you with any inquiries or issues.</p>
                 </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="projects.html" class="btn btn-outline">See Our Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section" id="services">
+        <div class="container">
+            <h2 class="section-title text-center reveal">Our Services</h2>
+            <p class="text-center mb-4 reveal" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                We offer comprehensive luxury pool design and construction services, creating bespoke aquatic environments tailored to your vision and lifestyle.
+            </p>
+            
+            <!-- Service with Image 1 -->
+            <div class="service-with-image reveal">
+                <div class="service-image-container">
+                    <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Custom luxury pool design" class="service-image">
+                </div>
+                <div class="service-text">
+                    <h3>Custom Luxury Pools</h3>
+                    <p>Bespoke aquatic designs that reflect your personal style and enhance your property's architecture. From sleek modern designs to naturalistic free-form pools, we create unique water features that become the centerpiece of your outdoor living space.</p>
+                    <ul class="service-features">
+                        <li>Custom design tailored to your vision</li>
+                        <li>Premium materials and finishes</li>
+                        <li>Advanced lighting and automation</li>
+                        <li>Integration with existing architecture</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service with Image 2 -->
+            <div class="service-with-image reveal">
+                <div class="service-text">
+                    <h3>Outdoor Living Spaces</h3>
+                    <p>Complete outdoor environments including kitchens, fire features, and entertainment areas. We design cohesive outdoor spaces that extend your living area, creating seamless transitions between indoor and outdoor environments for entertaining and relaxation.</p>
+                    <ul class="service-features">
+                        <li>Outdoor kitchens and dining areas</li>
+                        <li>Custom fire pits and fireplaces</li>
+                        <li>Landscape design and hardscaping</li>
+                        <li>Lighting and audio systems</li>
+                    </ul>
+                </div>
+                <div class="service-image-container">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Outdoor living space" class="service-image">
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="service-title">Custom Luxury Pools</h3>
+                    <p class="service-description">Bespoke aquatic designs that reflect your personal style and enhance your property's architecture.</p>
+                    <ul class="service-features">
+                        <li>Infinity edge designs</li>
+                        <li>Vanishing edge pools</li>
+                        <li>Natural stone finishes</li>
+                        <li>Custom tile work</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Outdoor Living Spaces</h3>
+                    <p class="service-description">Complete outdoor environments including kitchens, fire features, and entertainment areas.</p>
+                    <ul class="service-features">
+                        <li>Outdoor kitchens</li>
+                        <li>Fire pits & fireplaces</li>
+                        <li>Entertainment areas</li>
+                        <li>Landscape design</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="service-title">Water & Fire Features</h3>
+                    <p class="service-description">Artistic installations that create captivating visual and sensory experiences in your outdoor space.</p>
+                    <ul class="service-features">
+                        <li>Waterfalls & fountains</li>
+                        <li>Fire bowls & fire walls</li>
+                        <li>Interactive water features</li>
+                        <li>Custom fire pits</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-title">Pool Remodeling</h3>
+                    <p class="service-description">Transforming existing pools into modern masterpieces with updated finishes and features.</p>
+                    <ul class="service-features">
+                        <li>Surface refinishing</li>
+                        <li>Feature additions</li>
+                        <li>Equipment upgrades</li>
+                        <li>Complete renovations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="services.html" class="btn btn-outline">See All Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2 class="section-title text-center reveal">Client Testimonials</h2>
+            <p class="text-center mb-4 reveal" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                Discover why discerning homeowners across Houston trust Advent Pools with their most valuable outdoor investments.
+            </p>
+            
+            <div class="testimonials-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide active">
+                    <p class="testimonial-quote">"Advent Pools transformed our backyard into an oasis that exceeded all expectations. Their attention to detail and commitment to quality is unparalleled. The entire process was seamless, and the result is absolutely breathtaking."</p>
+                    <p class="testimonial-author">— Michael & Sarah Johnson, River Oaks</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"Working with Advent Pools was a seamless experience from concept to completion. Their design vision and craftsmanship have added incredible value to our home. We receive compliments daily on our stunning pool."</p>
+                    <p class="testimonial-author">— Robert Chen, Memorial</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"The team at Advent Pools understood exactly what we wanted to achieve. Our new pool has become the centerpiece of our outdoor living space. The quality of construction and finish is exceptional."</p>
+                    <p class="testimonial-author">— Jennifer Williams, Tanglewood</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <div class="testimonial-dot active" data-slide="0"></div>
+                <div class="testimonial-dot" data-slide="1"></div>
+                <div class="testimonial-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="cta-title mb-3">
+                    <span class="typed-text">Ready to Build Your Dream Pool?</span>
+                </h2>
+                <p class="cta-subtitle mb-4">Contact us today to begin your journey toward exceptional outdoor living. Experience the Advent Pools difference.</p>
+                <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Smart <span>Tech</span> Juba</div>
-                    <p>Your trusted online electronics store in Juba, South Sudan. Free delivery straight to your doorstep.</p>
+                <div class="footer-col">
+                    <div class="footer-logo">ADVENT<span>POOLS</span></div>
+                    <p>Creating extraordinary aquatic environments for discerning clients in Houston and beyond. Redefining luxury outdoor living since 1998.</p>
                 </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="process.html" class="footer-link">Our Process</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
                 </div>
-                <div class="footer-links">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> 0922 237 302</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Juba, South Sudan</li>
-                        <li><i class="fas fa-envelope"></i> smarttechjuba@gmail.com</li>
-                    </ul>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">Services</h3>
+                    <a href="services.html" class="footer-link">Custom Luxury Pools</a>
+                    <a href="services.html" class="footer-link">Outdoor Living Spaces</a>
+                    <a href="services.html" class="footer-link">Water & Fire Features</a>
+                    <a href="services.html" class="footer-link">Pool Remodeling</a>
+                    <a href="services.html" class="footer-link">Maintenance Services</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <p class="footer-link"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Houston, Texas</p>
+                    <p class="footer-link"><i class="fas fa-phone" style="margin-right: 10px;"></i> (713) 555-7890</p>
+                    <p class="footer-link"><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@adventpools.com</p>
+                    <p class="footer-link"><i class="fas fa-clock" style="margin-right: 10px;"></i> Mon-Fri: 9am-6pm</p>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Smart Tech Juba. All rights reserved.</p>
+                <p>&copy; 2026 Advent Pools. All rights reserved. | Luxury Pool Design & Construction | Houston, Texas</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/211922237302" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
 
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -500,3 +500,506 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor.style.display = 'none';
     }
 });
+
+// ===========================================
+// ADVANCED AI CHATBOT FOR ADVENT POOLS
+// ===========================================
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ====================
+    // CHATBOT ELEMENTS
+    // ====================
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const sendMessageBtn = document.getElementById('sendMessage');
+    const typingIndicator = document.getElementById('typingIndicator');
+    
+    // ====================
+    // CHATBOT STATE
+    // ====================
+    let isChatbotOpen = false;
+    let conversationHistory = [];
+    
+    // ====================
+    // KNOWLEDGE BASE - ADVENT POOLS BUSINESS DETAILS
+    // ====================
+    const knowledgeBase = {
+        // Company Information
+        company: {
+            name: "Advent Pools",
+            location: "Houston, Texas",
+            founded: "1998",
+            description: "Advent Pools is Houston's premier luxury pool design and construction company, specializing in custom aquatic environments for discerning homeowners.",
+            mission: "To transform ordinary spaces into extraordinary aquatic environments through innovative design, meticulous craftsmanship, and unparalleled service.",
+            values: ["Craftsmanship", "Innovation", "Integrity", "Collaboration", "Excellence"],
+            team: {
+                size: "15+ experienced professionals",
+                specialties: ["Pool Design", "Engineering", "Construction", "Landscape Architecture"]
+            }
+        },
+        
+        // Services
+        services: {
+            "Custom Luxury Pools": {
+                description: "Bespoke aquatic designs tailored to your personal style and property architecture.",
+                features: ["Infinity-edge designs", "Vanishing edge pools", "Natural stone finishes", "Custom tile work", "Advanced lighting systems"],
+                time: "12-16 weeks",
+                startingPrice: "$150,000"
+            },
+            "Outdoor Living Spaces": {
+                description: "Complete outdoor environments including kitchens, fire features, and entertainment areas.",
+                features: ["Outdoor kitchens", "Fire pits & fireplaces", "Entertainment areas", "Landscape design", "Lighting systems"],
+                time: "8-12 weeks",
+                startingPrice: "$75,000"
+            },
+            "Water & Fire Features": {
+                description: "Artistic installations creating captivating visual and sensory experiences.",
+                features: ["Waterfalls & fountains", "Fire bowls & fire walls", "Interactive water features", "Rain curtains", "Laminar flow features"],
+                time: "4-8 weeks",
+                startingPrice: "$25,000"
+            },
+            "Pool Remodeling": {
+                description: "Transforming existing pools into modern masterpieces with updated finishes and features.",
+                features: ["Complete resurfacing", "Tile and coping replacement", "Equipment upgrades", "Feature additions", "Deck renovations"],
+                time: "6-10 weeks",
+                startingPrice: "$50,000"
+            }
+        },
+        
+        // Pool Styles
+        poolStyles: {
+            "Infinity Edge": "Creates the illusion of water extending to the horizon, perfect for properties with views.",
+            "Modern Geometric": "Clean lines, sharp angles, and minimalist aesthetics for contemporary homes.",
+            "Natural Freeform": "Organic shapes and natural materials that blend seamlessly with surroundings.",
+            "Resort-Style": "Multiple water features, fire elements, and entertainment areas for a private resort feel.",
+            "Lap Pool": "Designed for swimming exercise, typically rectangular and longer than traditional pools."
+        },
+        
+        // Process
+        process: {
+            steps: [
+                {
+                    number: "01",
+                    title: "Consultation & Design",
+                    description: "Initial site assessment, needs analysis, and preliminary design concepts."
+                },
+                {
+                    number: "02",
+                    title: "3D Design & Planning",
+                    description: "Detailed 3D modeling, engineering plans, and permit acquisition."
+                },
+                {
+                    number: "03",
+                    title: "Construction & Craftsmanship",
+                    description: "Expert construction using premium materials and time-tested techniques."
+                },
+                {
+                    number: "04",
+                    title: "Delivery & Support",
+                    description: "System training, maintenance guidance, and ongoing support."
+                }
+            ],
+            timeline: "Most projects take 14-16 weeks from design to completion.",
+            consultation: "Complimentary 90-minute consultation at your property."
+        },
+        
+        // Pricing
+        pricing: {
+            factors: [
+                "Pool size and shape",
+                "Materials and finishes",
+                "Additional features (spa, waterfalls, etc.)",
+                "Site conditions and accessibility",
+                "Permitting and engineering requirements"
+            ],
+            ranges: {
+                "Basic Custom Pool": "$100,000 - $200,000",
+                "Luxury Custom Pool": "$200,000 - $500,000",
+                "High-End Luxury Pool": "$500,000+",
+                "Pool with Outdoor Living Space": "$250,000 - $750,000"
+            },
+            financing: "We offer financing options through trusted partners. Typical terms: 10-15 years with competitive rates."
+        },
+        
+        // Contact Information
+        contact: {
+            phone: "(713) 555-7890",
+            email: "info@adventpools.com",
+            hours: "Monday-Friday: 9:00 AM - 6:00 PM",
+            serviceArea: "Greater Houston area including River Oaks, Memorial, Tanglewood, West University",
+            consultation: "Schedule through our website contact form or call directly"
+        },
+        
+        // Frequently Asked Questions
+        faqs: {
+            "How long does the construction process take?": "Most luxury pool projects take 14-16 weeks from design approval to completion, depending on size and complexity.",
+            "Do you handle permits?": "Yes, we manage all permitting and regulatory compliance as part of our comprehensive service.",
+            "What is your warranty?": "We offer a 5-year structural warranty and 2-year equipment warranty on all our installations.",
+            "Do you offer maintenance services?": "Yes, we provide comprehensive maintenance programs to keep your pool in pristine condition year-round.",
+            "Can you work with my architect/landscape designer?": "Absolutely! We frequently collaborate with architects and designers to ensure a cohesive design vision."
+        }
+    };
+    
+    // ====================
+    // CHATBOT FUNCTIONS
+    // ====================
+    
+    // Toggle chatbot window
+    chatbotToggle.addEventListener('click', function() {
+        isChatbotOpen = !isChatbotOpen;
+        chatbotWindow.classList.toggle('active', isChatbotOpen);
+        
+        // Focus on input when opening
+        if (isChatbotOpen) {
+            setTimeout(() => {
+                chatbotInput.focus();
+            }, 300);
+        }
+    });
+    
+    // Close chatbot
+    chatbotClose.addEventListener('click', function() {
+        isChatbotOpen = false;
+        chatbotWindow.classList.remove('active');
+    });
+    
+    // Send message function
+    function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (!message) return;
+        
+        // Add user message to chat
+        addMessage(message, 'user');
+        chatbotInput.value = '';
+        
+        // Add to conversation history
+        conversationHistory.push({ role: 'user', content: message });
+        
+        // Show typing indicator
+        typingIndicator.classList.add('active');
+        
+        // Process message and generate response (simulated delay)
+        setTimeout(() => {
+            const response = generateResponse(message);
+            addMessage(response, 'bot');
+            typingIndicator.classList.remove('active');
+            
+            // Add to conversation history
+            conversationHistory.push({ role: 'bot', content: response });
+            
+            // Scroll to bottom
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 1000 + Math.random() * 1000);
+    }
+    
+    // Send message on button click
+    sendMessageBtn.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key
+    chatbotInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    // Quick question buttons
+    document.querySelectorAll('.quick-question-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const question = this.getAttribute('data-question');
+            chatbotInput.value = question;
+            sendMessage();
+        });
+    });
+    
+    // Hint buttons
+    document.querySelectorAll('.hint-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const question = this.getAttribute('data-question');
+            chatbotInput.value = question;
+            sendMessage();
+        });
+    });
+    
+    // Add message to chat
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        messageDiv.innerHTML = `
+            <div class="message-content">
+                <p>${text}</p>
+                <span class="message-time">${time}</span>
+            </div>
+        `;
+        
+        chatbotMessages.appendChild(messageDiv);
+        
+        // Scroll to bottom
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    // ====================
+    // AI RESPONSE GENERATION
+    // ====================
+    
+    function generateResponse(userMessage) {
+        const lowerMessage = userMessage.toLowerCase();
+        
+        // Greetings
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return "Hello! Welcome to Advent Pools. I'm here to help you with all your luxury pool questions. How may I assist you today?";
+        }
+        
+        // Company information
+        if (lowerMessage.includes('about') || lowerMessage.includes('company') || lowerMessage.includes('who are you')) {
+            return `Advent Pools is ${knowledgeBase.company.description} Founded in ${knowledgeBase.company.founded} in ${knowledgeBase.company.location}, we have over 25 years of experience creating breathtaking aquatic environments. Our mission is ${knowledgeBase.company.mission}`;
+        }
+        
+        // Services
+        if (lowerMessage.includes('service') || lowerMessage.includes('offer') || lowerMessage.includes('what do you do')) {
+            let response = "We offer several luxury pool services:\n\n";
+            for (const [service, details] of Object.entries(knowledgeBase.services)) {
+                response += `• <strong>${service}</strong>: ${details.description} (Starting at ${details.startingPrice})\n`;
+            }
+            response += "\nWhich service are you interested in learning more about?";
+            return response;
+        }
+        
+        // Specific service details
+        for (const [service, details] of Object.entries(knowledgeBase.services)) {
+            if (lowerMessage.includes(service.toLowerCase())) {
+                let response = `<strong>${service}</strong>\n${details.description}\n\n`;
+                response += `<strong>Key Features:</strong>\n`;
+                details.features.forEach(feature => {
+                    response += `• ${feature}\n`;
+                });
+                response += `\n<strong>Timeline:</strong> ${details.time}\n`;
+                response += `<strong>Starting Price:</strong> ${details.startingPrice}\n\n`;
+                response += `Would you like to schedule a consultation to discuss your ${service} project?`;
+                return response;
+            }
+        }
+        
+        // Pool styles
+        if (lowerMessage.includes('style') || lowerMessage.includes('design') || lowerMessage.includes('type of pool')) {
+            let response = "We specialize in several luxury pool styles:\n\n";
+            for (const [style, description] of Object.entries(knowledgeBase.poolStyles)) {
+                response += `• <strong>${style}</strong>: ${description}\n`;
+            }
+            response += "\nDo any of these styles match what you're looking for?";
+            return response;
+        }
+        
+        // Process
+        if (lowerMessage.includes('process') || lowerMessage.includes('how does it work') || lowerMessage.includes('timeline')) {
+            let response = "Our design and construction process involves 4 key steps:\n\n";
+            knowledgeBase.process.steps.forEach(step => {
+                response += `<strong>${step.number} ${step.title}:</strong> ${step.description}\n`;
+            });
+            response += `\n<strong>Typical Timeline:</strong> ${knowledgeBase.process.timeline}\n`;
+            response += `<strong>Initial Consultation:</strong> ${knowledgeBase.process.consultation}\n\n`;
+            response += "Would you like to schedule a consultation to begin the process?";
+            return response;
+        }
+        
+        // Pricing
+        if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+            let response = "Luxury pool pricing varies based on several factors:\n\n";
+            response += "<strong>Factors Affecting Cost:</strong>\n";
+            knowledgeBase.pricing.factors.forEach(factor => {
+                response += `• ${factor}\n`;
+            });
+            
+            response += "\n<strong>Typical Price Ranges:</strong>\n";
+            for (const [type, range] of Object.entries(knowledgeBase.pricing.ranges)) {
+                response += `• ${type}: ${range}\n`;
+            }
+            
+            response += `\n<strong>Financing:</strong> ${knowledgeBase.pricing.financing}\n\n`;
+            response += "For an accurate quote, we recommend scheduling a consultation so we can assess your specific needs and property.";
+            return response;
+        }
+        
+        // Contact
+        if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('email') || lowerMessage.includes('phone')) {
+            return `You can contact Advent Pools through:\n\n• <strong>Phone:</strong> ${knowledgeBase.contact.phone}\n• <strong>Email:</strong> ${knowledgeBase.contact.email}\n• <strong>Hours:</strong> ${knowledgeBase.contact.hours}\n• <strong>Service Area:</strong> ${knowledgeBase.contact.serviceArea}\n\nWould you like me to help you schedule a consultation?`;
+        }
+        
+        // Consultation
+        if (lowerMessage.includes('consultation') || lowerMessage.includes('schedule') || lowerMessage.includes('meet')) {
+            return `Scheduling a consultation is easy! You can:\n\n1. Fill out the contact form on our website\n2. Call us directly at ${knowledgeBase.contact.phone}\n3. Reply to this chat with your preferred contact details and we'll reach out to schedule\n\nOur complimentary consultations typically last 90 minutes and include a site assessment at your property.`;
+        }
+        
+        // Location/Service Area
+        if (lowerMessage.includes('location') || lowerMessage.includes('where') || lowerMessage.includes('houston') || lowerMessage.includes('texas')) {
+            return `Advent Pools is based in Houston, Texas and serves the Greater Houston area including:\n\n• River Oaks\n• Memorial\n• Tanglewood\n• West University\n• Piney Point Village\n• Southampton Place\n• And surrounding areas\n\nDo you have a specific location in mind for your pool project?`;
+        }
+        
+        // Check for FAQ questions
+        for (const [question, answer] of Object.entries(knowledgeBase.faqs)) {
+            if (lowerMessage.includes(question.toLowerCase().substring(0, 20))) {
+                return answer;
+            }
+        }
+        
+        // Thank you
+        if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
+            return "You're welcome! Is there anything else I can help you with regarding Advent Pools or luxury pool design?";
+        }
+        
+        // Goodbye
+        if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
+            return "Thank you for chatting with Advent Pools AI Assistant! Feel free to reach out anytime if you have more questions. Have a wonderful day!";
+        }
+        
+        // Default response for unrecognized queries
+        const defaultResponses = [
+            "I'm not sure I understand your question about Advent Pools. Could you rephrase it?",
+            "I specialize in Advent Pools services, pricing, and design process. Could you ask about one of those topics?",
+            "That's an interesting question! As the Advent Pools AI assistant, I can help with information about our services, pricing, design process, or scheduling a consultation.",
+            "I'd be happy to help with that! Could you provide more details about what you're looking for in a luxury pool?",
+            "For specific questions about Advent Pools, I recommend contacting our team directly at (713) 555-7890 for personalized assistance."
+        ];
+        
+        // Try to match keywords and provide relevant information
+        if (lowerMessage.includes('pool')) {
+            return "I'd be happy to help with pool-related questions! Advent Pools specializes in custom luxury pool design and construction. Are you interested in learning about our services, pricing, or design process?";
+        }
+        
+        if (lowerMessage.includes('design')) {
+            return "Our design process begins with a complimentary consultation at your property. We then create detailed 3D models to bring your vision to life before construction begins. Would you like more details about our design services?";
+        }
+        
+        if (lowerMessage.includes('build') || lowerMessage.includes('construction')) {
+            return "Construction typically takes 14-16 weeks for most luxury pool projects. Our team of master craftsmen ensures exceptional quality using premium materials. Would you like to know more about our construction timeline or process?";
+        }
+        
+        // Random default response
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+    
+    // ====================
+    // CHATBOT AUTO-OPEN ON DELAY
+    // ====================
+    setTimeout(() => {
+        // Only open if user hasn't interacted with chatbot yet
+        if (conversationHistory.length === 0) {
+            // Show welcome message after delay
+            setTimeout(() => {
+                if (!isChatbotOpen) {
+                    addMessage("Hello! I'm the Advent Pools AI assistant. I notice you're browsing our luxury pool website. Is there anything specific you'd like to know about our services or design process?", 'bot');
+                    conversationHistory.push({ role: 'bot', content: "Welcome message" });
+                }
+            }, 30000); // 30 seconds delay
+        }
+    }, 1000);
+    
+    // ====================
+    // ENHANCED USER EXPERIENCE
+    // ====================
+    
+    // Auto-suggest based on input
+    chatbotInput.addEventListener('input', function() {
+        const value = this.value.toLowerCase();
+        
+        // Clear existing suggestions
+        const existingSuggestions = document.querySelector('.chatbot-suggestions');
+        if (existingSuggestions) {
+            existingSuggestions.remove();
+        }
+        
+        // Don't show suggestions for empty input or very short input
+        if (value.length < 2) return;
+        
+        // Generate suggestions based on input
+        const suggestions = getSuggestions(value);
+        if (suggestions.length > 0) {
+            const suggestionsDiv = document.createElement('div');
+            suggestionsDiv.className = 'chatbot-suggestions';
+            suggestionsDiv.innerHTML = `
+                <div class="suggestion-title">Related questions:</div>
+                <div class="suggestion-buttons"></div>
+            `;
+            
+            const buttonsContainer = suggestionsDiv.querySelector('.suggestion-buttons');
+            suggestions.forEach(suggestion => {
+                const button = document.createElement('button');
+                button.className = 'hint-btn';
+                button.textContent = suggestion;
+                button.setAttribute('data-question', suggestion);
+                button.addEventListener('click', function() {
+                    chatbotInput.value = suggestion;
+                    sendMessage();
+                });
+                buttonsContainer.appendChild(button);
+            });
+            
+            chatbotMessages.appendChild(suggestionsDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+    });
+    
+    // Get suggestions based on user input
+    function getSuggestions(input) {
+        const suggestions = [];
+        const allKeywords = [
+            "What services do you offer?",
+            "How much does a custom pool cost?",
+            "What is your design process?",
+            "How long does construction take?",
+            "Do you offer financing?",
+            "What pool styles do you have?",
+            "How do I schedule a consultation?",
+            "Tell me about Advent Pools",
+            "What is your warranty?",
+            "Do you handle permits?"
+        ];
+        
+        // Filter suggestions based on input
+        allKeywords.forEach(keyword => {
+            if (keyword.toLowerCase().includes(input)) {
+                suggestions.push(keyword);
+            }
+        });
+        
+        // Limit to 3 suggestions
+        return suggestions.slice(0, 3);
+    }
+    
+    // ====================
+    // CHATBOT PERSISTENCE (Local Storage)
+    // ====================
+    
+    // Load conversation history from localStorage
+    const savedHistory = localStorage.getItem('adventPoolsChatHistory');
+    if (savedHistory) {
+        conversationHistory = JSON.parse(savedHistory);
+        
+        // Display last 5 messages from history
+        const recentHistory = conversationHistory.slice(-5);
+        recentHistory.forEach(msg => {
+            if (msg.role === 'user' || msg.role === 'bot') {
+                addMessage(msg.content, msg.role);
+            }
+        });
+    }
+    
+    // Save conversation history to localStorage
+    function saveConversation() {
+        localStorage.setItem('adventPoolsChatHistory', JSON.stringify(conversationHistory.slice(-20))); // Keep last 20 messages
+    }
+    
+    // Save conversation periodically
+    setInterval(saveConversation, 10000); // Every 10 seconds
+    
+    // Save on page unload
+    window.addEventListener('beforeunload', saveConversation);
+});
